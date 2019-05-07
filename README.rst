@@ -79,5 +79,22 @@ Extra optional environment variables:
     (developer console, api, webpage, access token) **must end with .eu**
 
 
+Sample docker-compose file for running::
+
+  version: "3.7"
+
+  services:
+    zohodesk-auth-proxy:
+      image: zohodesk-auth-proxy:latest
+      ports:
+        - 8000:8000
+      environment:
+        - CLIENT_ID=<client_id>
+        - CLIENT_SECRET=<client_secret>
+        - REDIRECT_URI=<redirect_uri>
+        - REFRESH_TOKEN=<refresh_token>
+        - ORG_ID=<org_id>
+
+
 .. [1] https://accounts.zoho.eu/developerconsole
 .. [2] https://desk.zoho.com/DeskAPIDocument#Authentication#Authtokens#Oauth_Scopes
