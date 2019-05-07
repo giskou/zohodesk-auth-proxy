@@ -36,14 +36,14 @@ You now have <expiry> minutes to use that token and get the refresh token.
 To get a refresh token by running the following::
 
  curl --request POST \
-       --url https://accounts.zoho.eu/oauth/v2/token \
-       --header 'content-type: application/x-www-form-urlencoded' \
-       --data grant_type=authorization_code \
-       --data client_id=<client_id> \
-       --data client_secret=<client_secret> \
-       --data redirect_uri=<redirect_uri> \
-       --data scope=<scope> \
-       --data code=<code>
+      --url https://accounts.zoho.eu/oauth/v2/token \
+      --header 'content-type: application/x-www-form-urlencoded' \
+      --data grant_type=authorization_code \
+      --data client_id=<client_id> \
+      --data client_secret=<client_secret> \
+      --data redirect_uri=<redirect_uri> \
+      --data scope=<scope> \
+      --data code=<code>
 
 The result should be look like this::
 
