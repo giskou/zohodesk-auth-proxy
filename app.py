@@ -57,18 +57,16 @@ class API(object):
             "Authorization": ' '.join(["Zoho-oauthtoken", self._token])
         })
 
-        r = requests.request(flask.request.method, url,
-                             headers=headers, data=data, **kwargs)
-
-        return r.json(), r.status_code
+        return requests.request(flask.request.method, url,
+                                headers=headers, data=data, **kwargs)
 
 
 def forword_request(e):
     request_path = flask.request.path
     url = base_url + request_path
 
-    data, code = api.make_auth_request(url, data=flask.request.data)
-    return flask.jsonify(data), code
+    resp = api.make_auth_request(url, data=flask.request.data)
+    return resp.content, resp.status_code, resp.headers.items()
 
 
 base_url = os.getenv('API_ROOT', 'https://desk.zoho.eu')
