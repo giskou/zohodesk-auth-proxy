@@ -67,7 +67,7 @@ def forword_request(e):
     request_path = flask.request.path
     url = base_url + request_path
 
-    data, code = api.make_auth_request(url)
+    data, code = api.make_auth_request(url, data=flask.request.data)
     return flask.jsonify(data), code
 
 
